@@ -1,8 +1,8 @@
 ---
 title: Payone ACP app
-description: With Payone, your customers can pay with common payment methods, such as credit card, PayPal, Prepayment and Klarna.
+description: With Payone, your customers can pay with common payment methods, such as credit card, PayPal,PayPal Express, Prepayment and Klarna.
 template: howto-guide-template
-last_updated: Aug 30, 2024
+last_updated: December 16, 2024
 redirect_from:
    - /docs/aop/user/apps/payone.html
    - /docs/acp/user/apps/payone.html
@@ -11,7 +11,7 @@ redirect_from:
    - /docs/pbc/all/payment-service-provider/202404.0/base-shop/third-party-integrations/payone/integration-in-the-back-office/payone-integration-in-the-back-office.html
 ---
 
-[Payone](https://www.payone.com/DE-en?ref=spryker-documentation) lets your customers make payments with common payment methods, such as credit card, PayPal, Prepayment, and Klarna.
+[Payone](https://www.payone.com/DE-en?ref=spryker-documentation) lets your customers make payments with common payment methods, such as credit card, PayPal, PayPal Express, Prepayment, and Klarna.
 
 The Payone integration in Spryker is part of the App Composition Platform and supports both the default Storefront Yves and Spryker GLUE APIs.
 
@@ -22,7 +22,8 @@ You can have multiple accounts with Payone. For example, you can have different 
 The Payone App supports the B2B and B2C business models and the following payment methods:
 
 * Credit Card
-* Paypal Standard
+* PayPal Standard
+* PayPal Express
 * Klarna:
   * Invoice: pay later
   * Installments: slice it
@@ -37,7 +38,7 @@ For the *Payone Credit Card* payment method, the following modes are supported:
 - *3DS*: Messaging protocol that enables consumer authentication with their card issuer when making online purchases.
 - *PCI DSS Compliance via SAQ A*: A set of security standards designed to ensure that you accept, process, and transmit credit card information in a secure environment.
 
-For the *Payone Paypal* payment method, we support only *Preauthorization and Capture*.
+For the *Payone Paypal* and the *Payone Paypal Express* payment method, we support only *Preauthorization and Capture*.
 
 {% info_block infoBox "State machine for Payone" %}
 
@@ -86,6 +87,15 @@ When customers pay with PayPal, a shop owner can do the following:
 - Charge customers once the order is ready to be shipped, that is, capture the funds.
 - Cancel the entire customer order, that is, void the existing preauthorization. In this case, the customer is not charged anything.
 - Cancel one or more items of a customer's order before shipment. The customer is not charged for the canceled items.
+
+  ## PayPal Express payment flow
+
+Similar to the above when customers pay with PayPal Express, the flow is as follows:
+
+1. Customer selects the PayPal Express button from the cart and is presented with the PayPal Express modal, where they have to log in.
+2. On the PayPal Express modal, the customer confirms the address and the ammount and either cancels or validates the transaction.
+3. Customer is taken to the checkout page with the message of either a successfully placed or canceled order.
+
 
 ## Current limitations
 
